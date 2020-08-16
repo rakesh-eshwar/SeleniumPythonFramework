@@ -1,6 +1,0 @@
-[
-  "test_HomePage.py::TestHomePage::test_formSubmission",
-  "test_HomePage.py::TestHomePage::test_formSubmission[getData0]",
-  "test_HomePage.py::TestHomePage::test_formSubmission[getData1]",
-  "test_e2e.py::TestOne::test_e2e"
-]
