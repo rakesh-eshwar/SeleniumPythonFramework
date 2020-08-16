@@ -1,0 +1,111 @@
+
+
+
+103
+-> run this test in multiple data sets
+-> first with rakesh eshwar and later other one
+-> we already saw in conftest.py in other project
+@pytest.fixture(params=[("chrome","rakesh"), ("Firefox", "eshwar"), ("IE", "super")])
+def crossBrowser_02(request):
+    return request.param
+
+-> but here we cannot have different data in conftest as its not common to all tests
+-> the above eg was common to all test as the code was to run on which browser
+
+-> as the multiple data which we are going to feed will be specific to that test,
+    so we are writing in test file only
+-> if you see, when we use the above method in params, we need to use the index . where users wont be knowing what data is being passed
+-> this is not a good practice, so lets jump on to dictionary passing
+
+
+
+
+104
+-> above 104 lecture you follow , but do not use tuple, just replace it with dictionary
+
+
+105
+-> logging
+-> jsut add that getLogger in Base class
+-> from tests method, using self, call that method and create logger object and use it
+
+
+106
+-> html reports
+$ --html=report.html
+    -> this will create report.html in tests directory/package as we will be triggering from that package
+    -> so you can specify path with filename if you wanna store it in other directory
+-> Better approach is
+a. screenshot let it be inside test directory
+b. log and report.html you can put it in utilities or create new directory
+
+NOTE : regarding screenshot fails, there is core python code shown in 106, i wont be adding it currently
+-> previous screenshot one line code was to take screenshot, not when the code fails
+
+
+108 and 109
+-> install necessary stuffs for jenkins
+1. download generic java package from jenkins page
+-> use "java -jar jenkins.war -httpPort=8080 --enable-future-java"
+instead of "java -jar jenkins.war -httpPort=8080"
+2. open localhost:8080
+3. give credentials
+4. once jenkins open , click on "new item" and give the new item name
+5. select custom workspace and give the project path
+6. in build section, give build steps commands
+a. $ cd tests
+-> instead of passing like " C:\Users\RakeshE-1763\PycharmProjects\PythonSelFramework\reports\reports.html "
+    -> use $ $WORKSPACE/reports/reports.html
+b. $ py.test --browser_name=chrome --html=$WORKSPACE/reports/reports.html
+
+NOTE : in workspace, reports, its not coming in HTML graph , check that later
+
+
+110
+-> parameterizing it to run on different browser ( skipping for now )
+
+
+111
+-> Junit report
+-> in jobs only we can see reports in simple format
+    -> below workspace, open latest test report
+-> Pytest has feature where all reports can be exported as XML and jenkins can read that XML and
+    create plugin for you to see the reports
+-> so our command will look like this now
+$ py.test --browser_name=chrome --html=$WORKSPACE/reports/reports.html -v --junitxml="result.xml"
+
+
+112 --- 116
+-> read data from excell , which we saw in python zero to hero or python data structure class
+-> skipping it now
+
+
+120 - 121
+GIT ( svm is alternate )
+-> used to distribute framework across the peers
+-> common repository , keep track of changes
+-> create a new repo
+
+122
+steps :
+1. refer this for basic git commands
+https://confluence.atlassian.com/bitbucketserver/basic-git-commands-776639767.html
+
+2.
+$  git config --global user.name "rakesh eshwar"
+
+3.
+$ git config --global user.email "rakesheshwar0404@gmail.com"
+
+4.
+
+
+NOTE :
+project name which is being pushed to git is "PythonSeleniumFramework"
+
+
+
+
+
+
+
