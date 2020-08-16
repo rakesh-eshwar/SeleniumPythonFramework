@@ -1,0 +1,5 @@
+
+====================== INPUT DATA ============================
+
+-> This Package contains all the input data for all the tests
+-> ------- anything more generic related to the TestData package can be written here --------------
